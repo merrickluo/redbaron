@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196279d124e14407d811df92bcf715ff, type: 3}
-  m_Name: Railgun
+  m_Script: {fileID: 11500000, guid: ac39e098ddeb017429bcdbcfb8ecbde8, type: 3}
+  m_Name: RedShotGun
   m_EditorClassIdentifier: 
-  damage: 10
-  bullet: {fileID: 1190303326778342, guid: f2ab5c7312b0b49fd846047723397d80, type: 2}
-  speed: 10
-  fireRate: 0.1
+  damage: 0
+  speed: 0
+  fireRate: 0
+  bulletPrefab: {fileID: 0}

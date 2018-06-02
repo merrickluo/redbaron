@@ -202,7 +202,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1667763711
+--- !u!1 &617787133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617787134}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &617787134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617787133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.222, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1223515945}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1223515945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4977960425769860, guid: 5903b181cdb8d4db2ac275997732aec3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1797430980}
+--- !u!1001 &1797430980
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -245,6 +278,17 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114772987858821346, guid: 5903b181cdb8d4db2ac275997732aec3,
+        type: 2}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 617787133}
+    - target: {fileID: 114772987858821346, guid: 5903b181cdb8d4db2ac275997732aec3,
+        type: 2}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 32e0040d1b7c7db46b032de76769f0fd,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5903b181cdb8d4db2ac275997732aec3, type: 2}
   m_IsPrefabAsset: 0

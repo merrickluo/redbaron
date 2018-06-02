@@ -6,30 +6,25 @@ public class Player : MonoBehaviour {
     public float health = 200f;
     public float moveSpeed = 5f;
 
-    public GameObject gun;
-    public GameObject bulletPrefab;
+    public GameObject muzzle;
+    public Weapon weapon;
 
     private Rigidbody2D rb;
     private Animator animator;
 
     private float invincibleTimer = 2;
 
-    private WeaponSlot weapon;
-
     void Start() {
         this.rb = GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
 
-        this.weapon = GetComponentInChildren<WeaponSlot>();
+        // private variables must be reset
+        this.weapon.Reset();
     }
 
     void Update() {
-        if (Input.GetButtonDown("Fire1")) {
-            this.weapon.StartShooting();
-        }
-
-        if (Input.GetButtonUp("Fire1")) {
-            this.weapon.StopShooting();
+        if (Input.GetButton("Fire1")) {
+            this.weapon.Fire(this.muzzle);
         }
 
         float horizontal = Input.GetAxis("Horizontal");
