@@ -13,34 +13,36 @@ public class Player : MonoBehaviour {
     private Animator animator;
 
     private float invincibleTimer = 2;
-    private bool isShooting = false;
+
+    private WeaponSlot weapon;
 
     void Start() {
         this.rb = GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
-        StartCoroutine(CheckShooting());
+
+        this.weapon = GetComponentInChildren<WeaponSlot>();
     }
 
     void Update() {
+        if (Input.GetButtonDown("Fire1")) {
+            this.weapon.StartShooting();
+        }
+
+        if (Input.GetButtonUp("Fire1")) {
+            this.weapon.StopShooting();
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(horizontal, vertical)
-            * moveSpeed * Time.deltaTime;
-        this.rb.MovePosition(this.rb.position + movement);
+        Vector2 movement = new Vector2(horizontal, vertical);
+        Vector2 targePos = this.rb.position + movement * moveSpeed * Time.deltaTime;
+        this.rb.MovePosition(targePos);
 
         if (this.invincibleTimer > 0) {
             this.invincibleTimer -= Time.deltaTime;
         } else {
             this.animator.SetBool("invincible", false);
-        }
-
-        if (Input.GetButtonDown("Fire1")) {
-            this.isShooting = true;
-        }
-
-        if (Input.GetButtonUp("Fire1")) {
-            this.isShooting = false;
         }
     }
 
@@ -55,19 +57,5 @@ public class Player : MonoBehaviour {
         if (health <= 0) {
             Destroy(gameObject);
         }
-    }
-
-    IEnumerator CheckShooting() {
-        for (;;) {
-            if (this.isShooting) {
-                GameObject bullet = Instantiate(this.bulletPrefab,
-                                                this.gun.transform.position,
-                                                Quaternion.identity);
-                Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-                bulletRb.velocity = Vector2.up * 10f;
-            }
-            yield return new WaitForSeconds(0.1f);
-        }
-
     }
 }
