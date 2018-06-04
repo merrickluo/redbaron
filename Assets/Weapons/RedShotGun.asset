@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac39e098ddeb017429bcdbcfb8ecbde8, type: 3}
   m_Name: RedShotGun
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  fireRate: 0
-  bulletPrefab: {fileID: 0}
+  damage: 20
+  speed: 5
+  fireRate: 4
+  bulletPrefab: {fileID: 1695919953306956, guid: c316876c024b4894c8ad6e119fad2887,
+    type: 2}
